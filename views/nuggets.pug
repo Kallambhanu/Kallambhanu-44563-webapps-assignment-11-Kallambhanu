@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  -
+  - var result = [{"nugget_name":"chicken","nugget_size":5,"nugget_type":"small"},{"nugget_name":"veg","nugget_size":20,"nugget_type":"large"},{"nugget_name":"potato","nugget_size":6,"nugget_type":"medium"}]
+  div.container-fluid
+    div.row
+        each item,index in result
+            div.col-sm-2(onclick=`buy(${index})`) nugget Name: #{item["nugget_name"]}  <br>  nugget_size: #{item["nugget_size"]} <br> nugget_type: #{item["nugget_type"]} 
+  script.
+    function buy(index){
+        alert("you purchased item "+(index+1))
+        }
