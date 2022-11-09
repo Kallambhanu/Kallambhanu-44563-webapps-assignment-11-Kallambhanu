@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   -
-  - var result = [{"nugget_name":"chicken","nugget_size":5,"nugget_type":"small"},{"nugget_name":"veg","nugget_size":20,"nugget_type":"large"},{"nugget_name":"potato","nugget_size":6,"nugget_type":"medium"}]
+  - var result = results
   div.container-fluid
     div.row
         each item,index in result
