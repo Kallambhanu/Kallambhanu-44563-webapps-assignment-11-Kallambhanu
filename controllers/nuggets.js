@@ -52,9 +52,9 @@ exports.nuggets_create_post = async function(req, res) {
     // Even though bodies can be in many different formats, we will be picky
     // and require that it be a json object
     // {"costume_type":"goat", "cost":12, "size":"large"}
-    document.nuggets_name = req.body.nuggets_name;
-    document.nuggets_size = req.body.nuggets_size;
     document.nuggets_type = req.body.nuggets_type;
+    document.size = req.body.size;
+    document.cost = req.body.cost;
     try{
     let result = await document.save();
     res.send(result);

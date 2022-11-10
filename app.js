@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var nuggetsRouter = require('./routes/nuggets');
-
+var resourceRouter = require('./routes/resource');
 require('dotenv').config(); 
 const connectionString =  
 process.env.MONGO_CON 
@@ -35,6 +35,7 @@ app.use('/users', usersRouter);
 app.use('/nuggets', nuggetsRouter);
 app.use('/gridbuild', gridbuildRouter);
 app.use('/selector', selectorRouter);
+app.use('/resource', resourceRouter);
 
 // We can seed the collection if needed on server start 
 async function recreateDB(){ 
