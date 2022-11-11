@@ -4,9 +4,16 @@ exports.nuggets_list = function(req, res) {
  res.send('NOT IMPLEMENTED: nuggets list');
 };
 // for a specific Costume.
-exports.nuggets_detail = function(req, res) {
- res.send('NOT IMPLEMENTED: nuggets detail: ' + req.params.id);
-};
+exports.nuggets_detail = async function(req, res) { 
+    console.log("detail"  + req.params.id) 
+    try { 
+        result = await nuggets.findById( req.params.id) 
+        res.send(result) 
+    } catch (error) { 
+        res.status(500) 
+        res.send(`{"error": document for id ${req.params.id} not found`); 
+    } 
+}; 
 // Handle Costume create on POST.
 exports.nuggets_create_post = function(req, res) {
  res.send('NOT IMPLEMENTED: nuggets create POST');
