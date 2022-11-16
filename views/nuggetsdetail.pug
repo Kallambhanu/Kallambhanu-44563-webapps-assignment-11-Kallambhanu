@@ -1,0 +1,21 @@
+extends layout
+
+block content
+ h1= title
+ - let nuggetsid = toShow._id
+ - let nuggets_type = toShow.nuggets_type
+ - let nuggetscost = toShow.cost
+ - let nuggetssize = toShow.size
+ div
+  div.row
+   div(class='nuggetsAttr mr-3') nuggets ID is:
+   div #{nuggetsid}
+  div.row
+   div(class='nuggetsAttr mr-3') nuggets _Type is:
+   div #{nuggets_type}
+  div.row
+   div(class='nuggetsAttr mr-3') nuggets Size is:
+   div #{nuggetssize}
+  div.row
+   div(class='nuggetsAttr mr-3') nuggets Cost is:
+   div #{nuggetscost}
