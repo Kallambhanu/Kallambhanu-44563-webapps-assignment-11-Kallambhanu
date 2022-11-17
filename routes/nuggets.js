@@ -15,4 +15,9 @@ module.exports = router;
 router.get('/detail', nuggets_controllers.nuggets_view_one_Page); 
 /* GET create nuggets page */ 
 router.get('/create', nuggets_controllers.nuggets_create_Page);
+/* GET create update page */
+router.get('/update', nuggets_controllers.nuggets_update_Page);
+/* GET delete nuggets page */ 
+router.get('/delete', nuggets_controllers.nuggets_delete_Page); 
+ 
  

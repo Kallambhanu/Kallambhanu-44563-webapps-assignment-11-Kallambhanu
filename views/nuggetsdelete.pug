@@ -1,0 +1,46 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let nuggetsid = toShow._id 
+    - let nuggets_type = toShow.nuggets_type 
+    - let nuggetscost = toShow.cost 
+    - let nuggetssize = toShow.size 
+    - let actionid = "/resource/nuggets/" + nuggetsid 
+    script let actionid = "#{actionid}" 
+    div 
+      div.row 
+        div(class='nuggetsAttr mr-3') nuggets ID is: 
+        div #{nuggetsid} 
+      div.row 
+        div(class='nuggetsAttr mr-3') nuggets Type is: 
+        div #{nuggets_type} 
+      div.row 
+        div(class='nuggetsAttr mr-3') nuggets Size is: 
+        div #{nuggetssize} 
+      div.row 
+        div(class='nuggetsAttr mr-3') nuggets Cost is: 
+        div #{nuggetscost} 
+ 
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+ 
+  script. 
+    function deleteOnid() { 
+      console.log("starting delete") 
+      // delete first 
+      fetch(actionid, { 
+        method: 'DELETE'      
+      }).then((resp) => { 
+        return resp.json(); 
+      }).then((body) => { 
+        alert("Delete succeded") 
+        window.location.href='/nuggets' 
+      }).catch((error) => { 
+        alert("Delete failed " + error ) 
+      }); 
+    } 

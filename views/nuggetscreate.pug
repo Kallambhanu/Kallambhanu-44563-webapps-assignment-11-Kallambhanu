@@ -4,29 +4,26 @@ block content
         h1= title
         form(id='nuggetsForm', action="/resource/nuggets", method="POST")
             div.form-group
-                label.nuggetsAttr(for='nuggets_type') nuggets type
+                label.nuggetsAttr(for='nuggets_type', class='col-4 col-from-label') nuggets type
                 input#nuggets_type(type='text', name='nuggets_type')
             div.form-group
-                label.nuggetsAttr(for='size') nuggets size
+                label.nuggetsAttr(for='size', class='col-4 col-from-label') nuggets size
                 input#size(type='text', name='size')
             div.form-group
-                label.nuggetsAttr(for='cost') nuggets cost
+                label.nuggetsAttr(for='cost', class='col-4 col-from-label') nuggets cost
                 input#cost(type='number', name='cost')
-            input(type="submit")
+            input(class='btn btn-outline-success' type="submit")             
             script.
                document.forms['nuggetsForm'].addEventListener('submit', (event) => {
                 event.preventDefault();
-            // TODO do something here to show user that form is being submitted
                 fetch(event.target.action, {
                  method: 'POST',
-                 body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+                 body: new URLSearchParams(new FormData(event.target)) 
                 }).then((resp) => {
-                 return resp.json(); // or resp.text() or whatever the server sends
+                 return resp.json(); 
                 }).then((body) => {
                  alert("Save succeded")
-                 // TODO handle body
                 }).catch((error) => {
-                 // TODO handle error
                  alert("Save failed " + error )
                 });
-               });
+              });
