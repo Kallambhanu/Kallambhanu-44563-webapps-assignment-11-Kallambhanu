@@ -45,14 +45,6 @@ app.use('/nuggets', nuggetsRouter);
 app.use('/gridbuild', gridbuildRouter);
 app.use('/selector', selectorRouter);
 app.use('/resource', resourceRouter);
-  // passport config 
-// Use the existing connection 
-// The Account model  
-var Account =require('./models/account'); 
- 
-passport.use(new LocalStrategy(Account.authenticate())); 
-passport.serializeUser(Account.serializeUser()); 
-passport.deserializeUser(Account.deserializeUser()); 
 
 // We can seed the collection if needed on server start 
 async function recreateDB(){ 
@@ -84,6 +76,14 @@ cost:25.4});
  
 let reseed = true; 
 if (reseed) { recreateDB();} 
+  // passport config 
+// Use the existing connection 
+// The Account model  
+var Account =require('./models/account'); 
+ 
+passport.use(new LocalStrategy(Account.authenticate())); 
+passport.serializeUser(Account.serializeUser()); 
+passport.deserializeUser(Account.deserializeUser()); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
