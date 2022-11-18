@@ -19,5 +19,3 @@ router.get('/create', nuggets_controllers.nuggets_create_Page);
 router.get('/update', nuggets_controllers.nuggets_update_Page);
 /* GET delete nuggets page */ 
 router.get('/delete', nuggets_controllers.nuggets_delete_Page); 
- 
- 
