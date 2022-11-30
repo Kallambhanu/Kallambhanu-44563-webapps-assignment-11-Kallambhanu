@@ -1,0 +1,142 @@
+> db.movies.insert({director_name:"Rishab Shetty",movie_title:"Kanthara",title_year:2022,genres:"Action Drama",language:"Telugu"})
+WriteResult({ "nInserted" : 1 })
+> db.movies.insert({director_name:"Sashi Kiran Tikka",movie_title:"Major",title_year:2022,genres:"biographical action",language:"Telugu"})
+WriteResult({ "nInserted" : 1 })
+> db.movies.insert({director_name:"Gunasekhar",movie_title:"Okkadu",title_year:2003,genres:"Romantic Action",language:"telugu"})
+WriteResult({ "nInserted" : 1 })
+> db.movies.count()
+5044
+
+> db.movies.find({director_name:"Ridley Scott",title_year:{$lt:1990}}).pretty()
+{
+        "_id" : ObjectId("63750d09de50e9884f5628ef"),
+        "color" : "Color",
+        "director_name" : "Ridley Scott",
+        "num_critic_for_reviews" : 63,
+        "duration" : 125,
+        "director_facebook_likes" : 0,
+        "actor_3_facebook_likes" : 237,
+        "actor_2_name" : "Ken Takakura",
+        "actor_1_facebook_likes" : 939,
+        "gross" : 45645204,
+        "genres" : "Action|Crime|Thriller",
+        "actor_1_name" : "Stephen Root",
+        "movie_title" : "Black Rain",
+        "num_voted_users" : 39306,
+        "cast_total_facebook_likes" : 1748,
+        "actor_3_name" : "Kate Capshaw",
+        "facenumber_in_poster" : 2,
+        "plot_keywords" : "counterfeit|detective|japan|police chase|yakuza",
+        "movie_imdb_link" : "http://www.imdb.com/title/tt0096933/?ref_=fn_tt_tt_1",
+        "num_user_for_reviews" : 119,
+        "language" : "English",
+        "country" : "USA",
+        "content_rating" : "R",
+        "budget" : 30000000,
+        "title_year" : 1989,
+        "actor_2_facebook_likes" : 255,
+        "imdb_score" : 6.6,
+        "aspect_ratio" : 2.35,
+        "movie_facebook_likes" : 0
+}
+{
+        "_id" : ObjectId("63750d09de50e9884f562977"),
+        "color" : "Color",
+        "director_name" : "Ridley Scott",
+        "num_critic_for_reviews" : 302,
+        "duration" : 117,
+        "director_facebook_likes" : 0,
+        "actor_3_facebook_likes" : 521,
+        "actor_2_name" : "Sean Young",
+        "actor_1_facebook_likes" : 11000,
+        "gross" : 27000000,
+        "genres" : "Sci-Fi|Thriller",
+        "actor_1_name" : "Harrison Ford",
+        "movie_title" : "Blade Runner",
+        "num_voted_users" : 461609,
+        "cast_total_facebook_likes" : 13877,
+        "actor_3_name" : "M. Emmet Walsh",
+        "facenumber_in_poster" : 2,
+        "plot_keywords" : "artificial intelligence|human android relationship|megacorporation|police detective|tech noir",
+        "movie_imdb_link" : "http://www.imdb.com/title/tt0083658/?ref_=fn_tt_tt_1",
+        "num_user_for_reviews" : 1168,
+        "language" : "English",
+        "country" : "USA",
+        "content_rating" : "R",
+        "budget" : 28000000,
+        "title_year" : 1982,
+        "actor_2_facebook_likes" : 759,
+        "imdb_score" : 8.2,
+        "aspect_ratio" : 2.35,
+        "movie_facebook_likes" : 34000
+}
+{
+        "_id" : ObjectId("63750d09de50e9884f562f54"),
+        "color" : "Color",
+        "director_name" : "Ridley Scott",
+        "num_critic_for_reviews" : 392,
+        "duration" : 116,
+        "director_facebook_likes" : 0,
+        "actor_3_facebook_likes" : 513,
+        "actor_2_name" : "Yaphet Kotto",
+        "actor_1_facebook_likes" : 1000,
+        "gross" : 78900000,
+        "genres" : "Horror|Sci-Fi",
+        "actor_1_name" : "Tom Skerritt",
+        "movie_title" : "Alien",
+        "num_voted_users" : 563827,
+        "cast_total_facebook_likes" : 2524,
+        "actor_3_name" : "Bolaji Badejo",
+        "facenumber_in_poster" : 0,
+        "plot_keywords" : "alien|creature|future|outer space|spaceship",
+        "movie_imdb_link" : "http://www.imdb.com/title/tt0078748/?ref_=fn_tt_tt_1",
+        "num_user_for_reviews" : 1110,
+        "language" : "English",
+        "country" : "UK",
+        "content_rating" : "R",
+        "budget" : 11000000,
+        "title_year" : 1979,
+        "actor_2_facebook_likes" : 581,
+        "imdb_score" : 8.5,
+        "aspect_ratio" : 2.35,
+        "movie_facebook_likes" : 23000
+}
+
+ db.movies.update({movie_title:"Okkadu"},{$set:{genres:"Suspense",language:"English"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.movies.update({movie_title:"Major"},{$set:{genres:"thriller",language:"Telugu"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.movies.update({movie_title:"Kanthara"},{$set:{genres:"Divotional",language:"Kannada"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.movies.find({movie_title:"Okkadu"}).pretty()
+{
+        "_id" : ObjectId("63864b8f13ca0dc95d252080"),
+        "director_name" : "Gunasekhar",
+        "movie_title" : "Okkadu",
+        "title_year" : 2003,
+        "genres" : "Suspense",
+        "language" : "English"
+}
+> db.movies.find({movie_title:"Major"}).pretty()
+{
+        "_id" : ObjectId("63864b1013ca0dc95d25207f"),
+        "director_name" : "Sashi Kiran Tikka",
+        "movie_title" : "Major",
+        "title_year" : 2022,
+        "genres" : "thriller",
+        "language" : "Telugu"
+}
+> db.movies.find({movie_title:"Kanthara"}).pretty()
+{
+        "_id" : ObjectId("63864a5513ca0dc95d25207e"),
+        "director_name" : "Rishab Shetty",
+        "movie_title" : "Kanthara",
+        "title_year" : 2022,
+        "genres" : "Divotional",
+        "language" : "Kannada"
+}
+
+ db.movies.remove({title_year:{$gt:2010}})
+WriteResult({ "nRemoved" : 1269 })
+ db.movies.count()
+3775
